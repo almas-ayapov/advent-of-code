@@ -1,1 +1,1 @@
-require("./2015/1/index")()
+require("./2015/1/index");
