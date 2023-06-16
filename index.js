@@ -1,1 +1,1 @@
-require("./2015/1/solution");
+require("./2015/2/aoc-2015-2-solution");
