@@ -2,8 +2,6 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 let currentFloor = 0;
-let currentStairsNumber = 1;
-let firstBasementStairsNumber = null;
 
 const rs = fs.createReadStream(path.join(__dirname, "aoc-2015-1-input.txt"), {
   encoding: "utf-8",
@@ -18,18 +16,9 @@ rs.on("readable", () => {
     } else if (chunk === ")") {
       currentFloor -= 1;
     }
-
-    if (firstBasementStairsNumber === null) {
-      if (currentFloor < 0) {
-        firstBasementStairsNumber = currentStairsNumber;
-      }
-      currentStairsNumber += 1;
-    }
   }
 });
 
 rs.on("end", () =>
-  console.log(
-    `Final floor is ${currentFloor}. First basement stairs number is ${firstBasementStairsNumber}.`
-  )
+  console.log(`AoC 2015 day 1 part 1: final floor is ${currentFloor}.`)
 );

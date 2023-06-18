@@ -34,5 +34,7 @@ rs.on("readable", () => {
 });
 
 rs.on("end", () =>
-  console.log(`${housesWithPresent.size} houses received at least one present.`)
+  console.log(
+    `AoC 2015 day 3 part 1: ${housesWithPresent.size} houses received at least one present.`
+  )
 );
