@@ -20,23 +20,36 @@ function getNewPosition(direction, currentPosition) {
   return { x, y };
 }
 
-function dropPresent() {}
-
 rs.on("readable", () => {
   let chunk;
-  const positions = new Map();
-  positions.set("Santa", { x: 0, y: 0 });
-  positions.set("RoboSanta", { x: 0, y: 0 });
+  let positions = [
+    { x: 0, y: 0 },
+    { x: 0, y: 0 },
+  ];
+
   housesWithPresent.set("00", 2);
 
+  let santasTurn = true;
+
   while (null !== (chunk = rs.read(1))) {
-    const key = `${positionOfSanta.x}${positionOfSanta.y}`;
+    let key;
+
+    if (santasTurn) {
+      positions[0] = getNewPosition(chunk, positions[0]);
+      key = `${positions[0].x}${positions[0].y}`;
+    } else {
+      positions[1] = getNewPosition(chunk, positions[1]);
+      key = `${positions[1].x}${positions[1].y}`;
+    }
+
     if (!housesWithPresent.has(key)) {
       housesWithPresent.set(key, 1);
     } else {
       const numberOfPresents = housesWithPresent.get(key);
       housesWithPresent.set(key, numberOfPresents + 1);
     }
+
+    santasTurn = !santasTurn;
   }
 });
 
