@@ -5,7 +5,7 @@ let totalAreaOfPaper = 0;
 let totalLengthOfRibbon = 0;
 
 const rl = readline.createInterface({
-  input: fs.createReadStream(path.join(__dirname, "aoc_2015_2_input.txt")),
+  input: fs.createReadStream(path.join(__dirname, "aoc-2015-2-input.txt")),
 });
 
 rl.on("line", (line) => {
