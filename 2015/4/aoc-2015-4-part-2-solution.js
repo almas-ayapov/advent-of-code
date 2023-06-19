@@ -8,4 +8,4 @@ while (!hash.startsWith("000000")) {
   hash = createHash("md5").update(`bgvyzdsv${count}`).digest("hex");
 }
 
-console.log(`AoC 2015 day 3 part 2: Answer is ${count}.`);
+console.log(`AoC 2015 day 4 part 2: Answer is ${count}.`);
