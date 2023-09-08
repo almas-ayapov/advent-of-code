@@ -3,7 +3,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const rl = readline.createInterface({
-  input: fs.createReadStream(path.join(__dirname, "aoc-2015-5-input.txt")),
+  input: fs.createReadStream(path.join(__dirname, "../aoc-2015-5-input.txt")),
 });
 
 let niceStringsCount = 0;

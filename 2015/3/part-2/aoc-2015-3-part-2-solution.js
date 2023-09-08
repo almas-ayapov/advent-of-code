@@ -2,9 +2,12 @@ const fs = require("node:fs");
 const path = require("node:path");
 const housesWithPresent = new Map();
 
-const rs = fs.createReadStream(path.join(__dirname, "aoc-2015-3-input.txt"), {
-  encoding: "utf-8",
-});
+const rs = fs.createReadStream(
+  path.join(__dirname, "../aoc-2015-3-input.txt"),
+  {
+    encoding: "utf-8",
+  }
+);
 
 function getNewPosition(direction, currentPosition) {
   let { x, y } = currentPosition;
